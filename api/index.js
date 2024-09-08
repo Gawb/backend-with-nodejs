@@ -4,7 +4,7 @@ const routerApi = require('./routes');
 const { logErrors, errorHandler, boomErrorHandler } = require('./middlewares/error.handler')
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT;
 
 app.use(express.json());
 
@@ -34,14 +34,7 @@ app.use(logErrors);
 app.use(boomErrorHandler);
 app.use(errorHandler);
 
-// app.get('/categories/:categoryId/products/:productId', (req, res)=>{
-//   const {categoryId, productId} = req.params;
-//   res.json({
-//     categoryId,
-//     productId,
-//   })
-// });
 
 app.listen(port, () => {
-  console.log(`ya corriendo desde esxpress, en el puerto: ${port}`)
+  console.log(`...ya corriendo desde express, en el puerto: ${port}`)
 });
